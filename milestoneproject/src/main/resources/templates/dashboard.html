@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/defaultTemplate">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">POWER Dashboard</title>
+</head>
+<body>
+<div layout:fragment="content" class="container mt-5 text-center">
+    <h1 th:text="${title}">Welcome!</h1>
+    <p>Welcome, <span th:text="${username}">User</span>! Start tracking your fitness today.</p>
+</div>
+</body>
+</html>

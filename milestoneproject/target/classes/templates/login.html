@@ -10,7 +10,7 @@
 <div layout:fragment="content" class="container mt-5">
     <h1 th:text="${title}">Login Form</h1>
 
-    <form th:action="@{/login/doLogin}" th:object="${loginModel}" method="post">
+    <form th:action="@{/login/doLogin}" th:object="${loginForm}" method="post">
         <div class="mb-3">
             <label for="username" class="form-label">Username:</label>
             <input type="text" th:field="*{username}" class="form-control" id="username"/>

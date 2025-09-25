@@ -20,7 +20,10 @@
     <description>POWER Fitness Tracker Spring Boot project</description>
 
     <properties>
-        <java.version>24</java.version>
+        <java.version>23</java.version>
+        <maven.compiler.source>23</maven.compiler.source>
+        <maven.compiler.target>23</maven.compiler.target>
+        <maven.compiler.release>23</maven.compiler.release>
     </properties>
 
     <dependencies>
@@ -52,12 +55,28 @@
 
     <build>
         <plugins>
+            <!-- Spring Boot Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <!-- Maven Dependency Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.5.0</version>
+            </plugin>
+
+             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.11.3</version>
+                <configuration>
+                    <release>23</release>
+            </configuration>
+            </plugin>
         </plugins>
     </build>
-
 </project>
 

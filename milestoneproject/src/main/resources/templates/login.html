@@ -80,7 +80,7 @@
                     <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger mt-2"></div>
                 </div>
 
-                <!-- Global Errors -->
+                <!-- Errors -->
                 <div th:if="${#fields.hasErrors('*')}" class="text-danger">
                     <p>There were errors in your submission:</p>
                     <ul>

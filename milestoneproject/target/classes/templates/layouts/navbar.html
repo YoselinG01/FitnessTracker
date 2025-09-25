@@ -10,12 +10,13 @@
 
     <!-- Header Fragment -->
     <div th:fragment="header">
-        <div class="container text-center my-4">
+        <!-- Hide this section on login page -->
+        <div class="container text-center my-4" th:if="${title != 'POWER Login'}">
             <h1>Welcome to POWER Fitness Tracker</h1>
         </div>
 
-        <!-- Bootstrap 5 Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">POWER</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -26,18 +27,21 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#" th:href="@{/}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#" th:href="@{/login/}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/login/}">Login</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="/">Start Page</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <!-- Page Title and Logo -->
-        <div class="container text-center my-4">
+        <!-- Hide logo and page title on login page -->
+        <div class="container text-center my-4" th:if="${title != 'POWER Login'}">
             <h2 th:text="${title}">Default Page Title</h2>
-            <img th:src="@{/images/power-logo.png}" alt="POWER Logo" style="height: 60px;" class="mt-2"/>
+            <img th:src="@{/images/power-logo.jpg}" alt="POWER Logo" style="height: 60px;" class="mt-2"/>
         </div>
     </div>
 
@@ -51,4 +55,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

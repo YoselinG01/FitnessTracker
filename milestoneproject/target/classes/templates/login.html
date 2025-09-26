@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/defaultTemplate">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">POWER Login</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: green;
+        }
+
+        .login-wrapper {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 1200px;
+            padding: 5rem;
+            font-size: 1.5rem;
+            border-radius: 0;
+            box-shadow: none;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .form-label {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .form-control {
+            font-size: 1.3rem;
+            padding: 1rem;
+        }
+
+        .btn-primary {
+            font-size: 1.5rem;
+            padding: 1rem;
+        }
+
+        .text-danger {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="login-wrapper">
+        <div class="card text-center">
+            <!-- Logo inside the form -->
+            <img th:src="@{/images/power-logo.jpg}" alt="POWER Logo" style="height: 100px;" class="mb-4"/>
+
+            <h1 th:text="${title}" class="mb-5">Login Form</h1>
+
+            <form th:action="@{/login/doLogin}" th:object="${loginForm}" method="post" class="d-grid gap-5 text-start">
+                <!-- Username -->
+                <div>
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" th:field="*{username}" class="form-control" id="username"/>
+                    <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger mt-2"></div>
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" th:field="*{password}" class="form-control" id="password"/>
+                    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger mt-2"></div>
+                </div>
+
+                <!-- Errors -->
+                <div th:if="${#fields.hasErrors('*')}" class="text-danger">
+                    <p>There were errors in your submission:</p>
+                    <ul>
+                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+                    </ul>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+
+                <!--Register Button-->
+                <div class="text-center mt-4">
+                <a th:href="@{/register}" class="btn btn-outline-secondary w-100">Register</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

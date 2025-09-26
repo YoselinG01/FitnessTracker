@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.gcu.controller","l":"HomeController"},{"p":"com.gcu.model","l":"LoginForm"},{"p":"com.gcu","l":"Main"},{"p":"com.gcu.controller","l":"PageController"}];updateSearchResults();

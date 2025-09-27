@@ -12,73 +12,86 @@
             background-color: green;
         }
 
-        .login-wrapper {
-            height: 100%;
+        .login-page {
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center; 
             padding: 2rem;
         }
 
         .card {
             width: 100%;
-            max-width: 1200px;
-            padding: 5rem;
+            max-width: 600px;
+            padding: 2.5rem 2rem 2rem 2rem;
             font-size: 1.5rem;
             border-radius: 0;
             box-shadow: none;
             background-color: #ffffff;
-            position: relative;
+            text-align: center;
         }
 
-        .logo-container {
-            position: absolute;
-            top: 2rem;
-            right: 15rem;
+        /* Logo inside card */
+        .card-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem; 
+            margin-top: 1rem;    
         }
 
-        .logo-container img {
-            height: 400px;
+        .card-logo img {
+            max-width: 120px; 
+            height: auto;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-label {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 600;
         }
 
         .form-control {
-            font-size: 1.3rem;
-            padding: 1rem;
+            font-size: 1.1rem;
+            padding: 0.8rem;
         }
 
-        .btn-primary {
-            font-size: 1.5rem;
-            padding: 1rem;
+        .btn-primary, .btn-outline-secondary {
+            font-size: 1.2rem;
+            padding: 0.8rem;
         }
 
         .text-danger {
-            font-size: 1.2rem;
+            font-size: 1rem;
+        }
+
+        .register-btn {
+            margin-top: 1rem;
         }
     </style>
 </head>
 <body>
 <div layout:fragment="content">
-    <div class="login-wrapper">
-        <div class="card text-center">
-            <!-- Logo positioned top-right -->
-            <div class="logo-container">
+    <div class="login-page">
+
+        <!-- Login card -->
+        <div class="card">
+
+            <!-- Logo inside card -->
+            <div class="card-logo">
                 <img th:src="@{/images/logo.png}" alt="POWER Logo"/>
             </div>
 
-            <h1 th:text="${title}" class="mb-5">Login Form</h1>
+            <!-- Page title -->
+            <h1 th:text="${title}">Login</h1>
 
-            <form th:action="@{/login/doLogin}" th:object="${loginForm}" method="post" class="d-grid gap-5 text-start">
+            <!-- Login form -->
+            <form th:action="@{/login/doLogin}" th:object="${loginForm}" method="post" class="d-grid gap-3 text-start">
                 <!-- Username -->
                 <div>
                     <label for="username" class="form-label">Username:</label>
@@ -104,12 +117,14 @@
                 <button type="submit" class="btn btn-primary w-100">Login</button>
             </form>
 
-            <!--Register Button-->
-            <div class="text-center mt-4">
+            <!-- Register Button -->
+            <div class="text-center register-btn">
                 <a th:href="@{/register}" class="btn btn-outline-secondary w-100">Register</a>
             </div>
+
         </div>
     </div>
 </div>
 </body>
 </html>
+

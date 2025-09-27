@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
  * Handles login page and form submission.
  */
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/login") // URL for controller
 public class HomeController {
 
     /**

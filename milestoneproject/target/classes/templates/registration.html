@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+        .row input {
+            flex: 1;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration</h2>
+        <form th:action="@{/register}" th:object="${registrationForm}" method="post">
+
+            <!-- Name -->
+            <label>Name</label>
+            <div class="row">
+                <input type="text" th:field="*{firstName}" placeholder="First Name" required/>
+                <input type="text" th:field="*{lastName}" placeholder="Last Name" required/>
+            </div>
+
+            <!-- Email -->
+            <label>Email</label>
+            <input type="email" th:field="*{email}" placeholder="example@example.com" required/>
+
+            <!-- Address -->
+            <label>Street Address</label>
+            <input type="text" th:field="*{street1}" placeholder="Street Address" required/>
+
+            <label>Street Address Line 2</label>
+            <input type="text" th:field="*{street2}" placeholder="Apartment, suite, etc."/>
+
+            <div class="row">
+                <input type="text" th:field="*{city}" placeholder="City" required/>
+                <input type="text" th:field="*{state}" placeholder="State / Province" required/>
+            </div>
+
+            <label>Postal / Zip Code</label>
+            <input type="text" th:field="*{zip}" placeholder="Zip Code" required/>
+
+            <!-- Phone -->
+            <label>Phone Number</label>
+            <div class="row">
+                <input type="text" th:field="*{areaCode}" placeholder="Area Code" required/>
+                <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" required/>
+            </div>
+
+            <!-- Date of Birth -->
+            <label>Date of Birth</label>
+            <input type="date" th:field="*{dateOfBirth}" required/>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

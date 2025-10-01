@@ -1,4 +1,5 @@
-com\gcu\controller\PageController.class
 com\gcu\Main.class
 com\gcu\controller\HomeController.class
 com\gcu\model\LoginForm.class
+com\gcu\controller\RegistrationController.class
+com\gcu\model\RegistrationForm.class

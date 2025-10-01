@@ -48,8 +48,8 @@ public class RegistrationController {
      */
     @PostMapping("/register")
     public String processRegistration(@ModelAttribute RegistrationForm form, Model model) {
-        model.addAttribute("message", "Welcome, " 
-                + form.getFirstName() + " " + form.getLastName() 
+        model.addAttribute("message", "Welcome, "
+                + form.getFirstName() + " " + form.getLastName()
                 + "! Your account has been created.");
         return "dashboard"; // loads dashboard.html
     }

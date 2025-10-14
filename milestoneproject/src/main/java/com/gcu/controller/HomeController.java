@@ -1,7 +1,10 @@
 package com.gcu.controller;
 
+import com.gcu.business.SecurityServiceInterface;
 import com.gcu.model.LoginForm;
 import jakarta.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,6 +18,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 @RequestMapping("/login") // URL for controller
 public class HomeController {
+
+    private final SecurityServiceInterface securityService;
+
+    @Autowired
+    public HomeController(SecurityServiceInterface securityService) {
+        this.securityService = securityService;
+    }
 
     /**
      * Shows the login form.
@@ -43,8 +53,19 @@ public class HomeController {
             model.addAttribute("title", "POWER Login");
             return "login";
         }
-        model.addAttribute("title", "POWER Dashboard");
-        model.addAttribute("username", loginForm.getUsername());
-        return "dashboard";
+
+        // Authenticate using the service
+        boolean isAuthenticated = securityService.authenticate(
+                loginForm.getUsername(), loginForm.getPassword());
+
+        if (isAuthenticated) {
+            model.addAttribute("title", "POWER Dashboard");
+            model.addAttribute("username", loginForm.getUsername());
+            return "dashboard";
+        } else {
+            model.addAttribute("title", "POWER Login");
+            model.addAttribute("error", "Invalid username or password");
+            return "login";
+        }
     }
 }

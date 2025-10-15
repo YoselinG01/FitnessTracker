@@ -1,6 +1,9 @@
 package com.gcu.controller;
 
+import com.gcu.business.RegistrationServiceInterface;
 import com.gcu.model.RegistrationForm;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +19,13 @@ import org.springframework.web.bind.annotation.PostMapping;
  */
 @Controller
 public class RegistrationController {
+
+    private final RegistrationServiceInterface registrationService;
+
+    @Autowired
+    public RegistrationController(RegistrationServiceInterface registrationService) {
+        this.registrationService = registrationService;
+    }
 
     /**
      * Handles GET requests for the registration page.
@@ -48,9 +58,10 @@ public class RegistrationController {
      */
     @PostMapping("/register")
     public String processRegistration(@ModelAttribute RegistrationForm form, Model model) {
-        model.addAttribute("message", "Welcome, "
-                + form.getFirstName() + " " + form.getLastName()
-                + "! Your account has been created.");
+
+        String message = registrationService.registerUser(form);
+
+        model.addAttribute("message", message);
         return "dashboard"; // loads dashboard.html
     }
 }

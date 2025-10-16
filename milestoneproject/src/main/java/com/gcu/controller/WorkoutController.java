@@ -2,7 +2,6 @@ package com.gcu.controller;
 
 import com.gcu.business.WorkoutServiceInterface;
 import com.gcu.model.Workout;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,18 +19,18 @@ public class WorkoutController {
         this.workoutService = workoutService;
     }
 
-    // Show the "Add Workout" page
-    @GetMapping("/workouts")
+    @GetMapping("/workouts/add")
     public String showWorkoutForm(Model model) {
         model.addAttribute("workout", new Workout());
-        return "workouts"; // matches workouts.html
+        model.addAttribute("title", "Add Workout");
+        return "workouts";
     }
 
-    // Process the workout form
     @PostMapping("/workouts/add")
     public String addWorkout(@ModelAttribute Workout workout, Model model) {
         String message = workoutService.addWorkout(workout);
         model.addAttribute("message", message);
-        return "dashboard"; // go back to dashboard after adding
+        model.addAttribute("title", "Dashboard");
+        return "dashboard";
     }
 }

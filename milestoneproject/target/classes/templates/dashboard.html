@@ -45,7 +45,7 @@
             margin-top: 2rem;
         }
 
-        .menu button {
+        .health button {
             padding: 1rem 2rem;
             font-size: 1.2rem;
             margin: 0.5rem;
@@ -54,9 +54,10 @@
             cursor: pointer;
             background-color: #28a745;
             color: white;
+            transition: background-color 0.3s;
         }
 
-        .menu button:hover {
+        .health button:hover {
             background-color: #218838;
         }
     </style>
@@ -69,21 +70,15 @@
             <p>Welcome, <span th:text="${username}">User</span>! Start tracking your fitness today.</p>
 
             <!-- Workouts Menu -->
-            <div style="margin-top: 2rem;">
-                <h2>Menu</h2>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: 1rem;">
-                        <a th:href="@{/workouts/add}" style="font-size: 1.2rem; text-decoration: none; color: blue;">Add Workout</a>
-                    </li>
-                    <li>
-                        <a th:href="@{/workouts/list}" style="font-size: 1.2rem; text-decoration: none; color: blue;">View Workouts</a>
-                    </li>
-                </ul>
+            <div class="health">
+                <h2>Health</h2>
+                <button type="button" th:onclick="'location.href=\'' + @{/workouts/add} + '\''">Add Workout</button>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 </html>
+
+
 

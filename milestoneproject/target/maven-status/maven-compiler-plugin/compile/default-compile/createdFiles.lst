@@ -1,9 +1,13 @@
 com\gcu\Main.class
+com\gcu\business\WorkoutService.class
 com\gcu\model\LoginForm.class
 com\gcu\controller\RegistrationController.class
 com\gcu\business\SecurityService.class
+com\gcu\business\WorkoutServiceInterface.class
 com\gcu\business\RegistrationService.class
 com\gcu\controller\HomeController.class
+com\gcu\model\Workout.class
 com\gcu\business\RegistrationServiceInterface.class
+com\gcu\controller\WorkoutController.class
 com\gcu\model\RegistrationForm.class
 com\gcu\business\SecurityServiceInterface.class

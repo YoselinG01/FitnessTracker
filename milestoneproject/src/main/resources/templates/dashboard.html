@@ -10,10 +10,11 @@
             height: 100%;
             margin: 0;
             background-color: green;
+            font-family: Arial, sans-serif;
         }
 
         .dashboard-wrapper {
-            height: 100%;
+            height: calc(100vh - 150px); /* account for navbar height */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -22,26 +23,27 @@
 
         .dashboard-card {
             width: 100%;
-            max-width: 1000px;
-            padding: 4rem;
+            max-width: 900px;
+            padding: 3rem;
             background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
             text-align: center;
-            font-size: 1.5rem;
         }
 
-        h1 {
-            font-size: 3rem;
+        h2 {
+            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 2rem;
+            color: #28a745;
+            margin-bottom: 1rem;
         }
 
         p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            color: #333;
         }
 
-        .menu {
+        .health {
             margin-top: 2rem;
         }
 
@@ -54,7 +56,7 @@
             cursor: pointer;
             background-color: #28a745;
             color: white;
-            transition: background-color 0.3s;
+            transition: background-color 0.2s ease;
         }
 
         .health button:hover {
@@ -66,19 +68,23 @@
 <div layout:fragment="content">
     <div class="dashboard-wrapper">
         <div class="dashboard-card">
-            <h1 th:text="${title}">Welcome!</h1>
-            <p>Welcome, <span th:text="${username}">User</span>! Start tracking your fitness today.</p>
+            <h2>Welcome, <span th:text="${username}">User</span>!</h2>
+            <p>Start tracking your fitness journey today.</p>
 
-            <!-- Workouts Menu -->
+            <!-- Health Menu -->
             <div class="health">
-                <h2>Health</h2>
-                <button type="button" th:onclick="'location.href=\'' + @{/workouts/add} + '\''">Add Workout</button>
+                <h3>Health</h3>
+                <button type="button"
+                        th:onclick="'location.href=\'' + @{/workouts/add} + '\''">
+                    Add Workout
+                </button>
             </div>
         </div>
     </div>
 </div>
 </body>
 </html>
+
 
 
 

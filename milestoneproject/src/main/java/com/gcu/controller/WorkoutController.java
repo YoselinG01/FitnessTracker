@@ -30,7 +30,7 @@ public class WorkoutController {
     public String addWorkout(@ModelAttribute Workout workout, Model model) {
         String message = workoutService.addWorkout(workout);
         model.addAttribute("message", message);
-        model.addAttribute("title", "Dashboard");
+        model.addAttribute("title", "");
         return "dashboard";
     }
 }

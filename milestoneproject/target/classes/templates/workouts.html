@@ -42,6 +42,15 @@
             font-size: 1rem;
         }
 
+        select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+    }
+
         button {
             background-color: #28a745;
             color: white;
@@ -55,22 +64,6 @@
         button:hover {
             background-color: #218838;
         }
-
-        .back-link {
-            display: block;
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-
-        .back-link a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-
-        .back-link a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
@@ -79,20 +72,23 @@
 
         <form th:action="@{/workouts/add}" th:object="${workout}" method="post">
             <label for="type">Type:</label>
-            <input type="text" id="type" th:field="*{type}" required />
+            <select th:field="*{type}" required>
+            <option value="">-- Select Workout Type --</option>
+            <option value="Cardio">Cardio</option>
+            <option value="Strength">Strength</option>
+            <option value="High-Intense">High-Intense</option>
+            <option value="Bodyweight">Bodyweight</option>
+            <option value="Functional">Functional</option>
+        </select>
 
-            <label for="description">Description:</label>
-            <input type="text" id="description" th:field="*{description}" />
+            <label for="calories burned">Calories Burned:</label>
+            <input type="number" id="caloriesBurned" th:field="*{caloriesBurned}" min="1" required />
 
             <label for="duration">Duration (minutes):</label>
             <input type="number" id="duration" th:field="*{duration}" min="1" required />
 
             <button type="submit">Add Workout</button>
         </form>
-
-        <div class="back-link">
-            <a th:href="@{/dashboard}">← Back to Dashboard</a>
-        </div>
     </div>
 </body>
 </html>

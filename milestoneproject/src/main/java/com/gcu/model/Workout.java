@@ -2,7 +2,7 @@ package com.gcu.model;
 
 public class Workout {
     private String type; // e.g., Cardio, Strength, Yoga
-    private String description; // Description of the workout
+    private int caloriesBurned; // Calories burned during the workout
     private int duration; // Duration in minutes
 
     // Getters and setters
@@ -14,12 +14,12 @@ public class Workout {
         this.type = type;
     }
 
-    public String getDescription() {
-        return description;
+    public int getCaloriesBurned() {
+        return caloriesBurned;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCaloriesBurned(int caloriesBurned) {
+        this.caloriesBurned = caloriesBurned;
     }
 
     public int getDuration() {

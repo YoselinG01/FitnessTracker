@@ -43,11 +43,11 @@
             color: #333;
         }
 
-        .health {
+        .section {
             margin-top: 2rem;
         }
 
-        .health button {
+        .section button {
             padding: 1rem 2rem;
             font-size: 1.2rem;
             margin: 0.5rem;
@@ -59,7 +59,7 @@
             transition: background-color 0.2s ease;
         }
 
-        .health button:hover {
+        .section button:hover {
             background-color: #218838;
         }
     </style>
@@ -72,19 +72,26 @@
             <p>Start tracking your fitness journey today.</p>
 
             <!-- Health Menu -->
-            <div class="health">
+            <div class="section">
                 <h3>Health</h3>
                 <button type="button"
                         th:onclick="'location.href=\'' + @{/workouts/add} + '\''">
                     Add Workout
                 </button>
             </div>
+
+            <!-- Profile Menu -->
+            <div class="section">
+                <h3>Profile</h3>
+                <button type="button"
+                        th:onclick="'location.href=\'' + @{/profile/edit} + '\''">
+                    Edit Profile
+                </button>
+            </div>
+
         </div>
     </div>
 </div>
 </body>
 </html>
-
-
-
 

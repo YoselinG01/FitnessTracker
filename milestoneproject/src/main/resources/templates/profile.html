@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/defaultTemplate">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Edit Profile</title>
+    <style>
+        body {
+            background-color: #f2faf5;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-wrapper {
+    height: calc(100vh - 150px); /* adjust for navbar height */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* align to top, not exact center */
+    padding: 2rem;
+    margin-top: 120px; /* pushes the card below navbar */
+}
+
+
+        .form-card {
+            width: 100%;
+            max-width: 600px;
+            padding: 2.5rem;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #28a745;
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        button {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            transition: background-color 0.2s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="form-wrapper">
+        <div class="form-card">
+            <h2>Add Profile</h2>
+            <form th:action="@{/profile/add}" th:object="${profile}" method="post">
+
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" th:field="*{firstName}" required />
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" th:field="*{lastName}" required />
+
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" id="phoneNumber" th:field="*{phoneNumber}" />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:field="*{email}" required />
+
+                <label for="goal">Goal:</label>
+                <input type="text" id="goal" th:field="*{goal}" />
+
+                <label for="weight">Weight (kg):</label>
+                <input type="number" step="0.1" id="weight" th:field="*{weight}" />
+
+                <label for="gender">Gender:</label>
+                <select id="gender" th:field="*{gender}">
+                    <option value="">-- Select Gender --</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="height">Height (cm):</label>
+                <input type="number" step="0.1" id="height" th:field="*{height}" />
+
+                <button type="submit">Edit Profile</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

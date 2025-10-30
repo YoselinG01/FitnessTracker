@@ -22,7 +22,18 @@ public class RegistrationService implements RegistrationServiceInterface {
 
         UserEntity newUser = new UserEntity();
         newUser.setUsername(form.getEmail());
-        newUser.setPassword(form.getPhoneNumber());
+        newUser.setEmail(form.getEmail());
+        newUser.setPassword(form.getPassword());
+        newUser.setFirstName(form.getFirstName());
+        newUser.setLastName(form.getLastName());
+        newUser.setDateOfBirth(form.getDateOfBirth());
+        newUser.setStreet1(form.getStreet1());
+        newUser.setStreet2(form.getStreet2());
+        newUser.setCity(form.getCity());
+        newUser.setState(form.getState());
+        newUser.setZip(form.getZip());
+        newUser.setAreaCode(form.getAreaCode());
+        newUser.setPhoneNumber(form.getPhoneNumber());
 
         userRepository.save(newUser);
 

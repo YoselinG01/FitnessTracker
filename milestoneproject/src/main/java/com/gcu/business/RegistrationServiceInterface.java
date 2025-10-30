@@ -1,5 +1,6 @@
 package com.gcu.business;
 
+import com.gcu.data.entity.UserEntity;
 import com.gcu.model.RegistrationForm;
 
 /**

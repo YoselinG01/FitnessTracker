@@ -1,6 +1,8 @@
 package com.gcu.controller;
 
 import com.gcu.business.SecurityServiceInterface;
+import com.gcu.data.entity.UserEntity;
+import com.gcu.data.entity.repository.UserRepository;
 import com.gcu.model.LoginForm;
 import jakarta.validation.Valid;
 
@@ -20,6 +22,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class HomeController {
 
     private final SecurityServiceInterface securityService;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     public HomeController(SecurityServiceInterface securityService) {
@@ -59,8 +64,10 @@ public class HomeController {
                 loginForm.getUsername(), loginForm.getPassword());
 
         if (isAuthenticated) {
+
+            UserEntity user = userRepository.findByUsername(loginForm.getUsername());
             model.addAttribute("title", "POWER Dashboard");
-            model.addAttribute("username", loginForm.getUsername());
+            model.addAttribute("firstName", user.getFirstName());
             return "dashboard";
         } else {
             model.addAttribute("title", "POWER Login");

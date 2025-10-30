@@ -1,6 +1,7 @@
 package com.gcu.controller;
 
 import com.gcu.business.RegistrationServiceInterface;
+import com.gcu.data.entity.UserEntity;
 import com.gcu.model.RegistrationForm;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,11 +58,9 @@ public class RegistrationController {
      * @return the name of the dashboard view (dashboard.html)
      */
     @PostMapping("/register")
-    public String processRegistration(@ModelAttribute RegistrationForm form, Model model) {
-
+    public String processRegistration(@ModelAttribute("registrationForm") RegistrationForm form, Model model) {
         String message = registrationService.registerUser(form);
-
         model.addAttribute("message", message);
-        return "dashboard"; // loads dashboard.html
+        return "dashboard";
     }
 }

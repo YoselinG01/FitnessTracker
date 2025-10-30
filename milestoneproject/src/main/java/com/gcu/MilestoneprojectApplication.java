@@ -7,13 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Entry point for the Spring Boot application.
  */
 @SpringBootApplication
-public class Main {
+public class MilestoneprojectApplication {
     /**
      * Starts the application.
      * 
      * @param args command-line arguments
      */
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(MilestoneprojectApplication.class, args);
     }
 }

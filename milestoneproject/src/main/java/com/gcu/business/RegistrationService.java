@@ -1,31 +1,31 @@
 package com.gcu.business;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gcu.data.entity.UserEntity;
+import com.gcu.data.entity.repository.UserRepository;
 import com.gcu.model.RegistrationForm;
-
-/**
- * Service class that handles user registration logic
- */
 
 @Service
 public class RegistrationService implements RegistrationServiceInterface {
 
-    /**
-     * Registers a new user using the provided registration form.
-     *
-     * @param form the registration form containing user information
-     * @return a message indicating success or failure of registration
-     */
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public String registerUser(RegistrationForm form) {
-        // Simulated registration logic (no database)
-        if (form.getFirstName() == null || form.getLastName() == null) {
-            return "Registration failed. Missing information.";
+
+        if (userRepository.findByUsername(form.getEmail()) != null) {
+            return "This email is already registered. Please log in.";
         }
 
-        System.out.println("New user registered: " + form.getFirstName() + " " + form.getLastName());
-        return "Welcome " + form.getFirstName() + " " + form.getLastName() + "! Your account has been created.";
+        UserEntity newUser = new UserEntity();
+        newUser.setUsername(form.getEmail());
+        newUser.setPassword(form.getPhoneNumber());
+
+        userRepository.save(newUser);
+
+        return "Registration successful! Please log in.";
     }
 }

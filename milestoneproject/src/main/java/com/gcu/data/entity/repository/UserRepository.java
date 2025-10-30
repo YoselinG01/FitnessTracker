@@ -7,6 +7,6 @@ import com.gcu.data.entity.UserEntity;
 
 @Repository
 public interface UserRepository extends CrudRepository<UserEntity, Long> {
-    UserEntity findByUserName(String username);
+    UserEntity findByUsername(String username);
 
 }

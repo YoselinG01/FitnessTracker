@@ -1,24 +1,27 @@
 package com.gcu.business;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.gcu.data.entity.WorkoutEntity;
+import com.gcu.data.entity.repository.WorkoutRepository;
 import com.gcu.model.Workout;
 
-/**
- * Service class for handling workout-related operations.
- */
 @Service
 public class WorkoutService implements WorkoutServiceInterface {
 
-    /**
-     * Adds a workout. Currently simulates saving without a database.
-     *
-     * @param workout the Workout object containing type, calories, and duration
-     * @return a confirmation message indicating the workout was added
-     */
+    @Autowired
+    private WorkoutRepository workoutRepository;
+
     @Override
-    public String addWorkout(Workout workout) {
-        // Simulate saving the workout (no database yet)
-        System.out.println("Workout logged: " + workout.getType() + " for " + workout.getDuration() + " minutes.");
-        return "Workout added: " + workout.getType() + " - " + workout.getDuration() + " minutes";
+    public String logWorkout(String email, Workout workout) {
+        WorkoutEntity log = new WorkoutEntity();
+        log.setEmail(email);
+        log.setType(workout.getType());
+        log.setDuration(workout.getDuration());
+        log.setCaloriesBurned(workout.getCaloriesBurned());
+
+        workoutRepository.save(log);
+
+        return "Workout logged successfully!";
     }
 }

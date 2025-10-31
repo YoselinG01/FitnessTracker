@@ -11,7 +11,9 @@ C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\src\main\java\com
 C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\src\main\java\com\gcu\controller\RegistrationController.java
 C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\src\main\java\com\gcu\controller\WorkoutController.java
 C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\src\main\java\com\gcu\data\entity\repository\UserRepository.java
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\src\main\java\com\gcu\data\entity\repository\WorkoutRepository.java
 C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\src\main\java\com\gcu\data\entity\UserEntity.java
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\src\main\java\com\gcu\data\entity\WorkoutEntity.java
 C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\src\main\java\com\gcu\MilestoneprojectApplication.java
 C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\src\main\java\com\gcu\model\LoginForm.java
 C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\src\main\java\com\gcu\model\Profile.java

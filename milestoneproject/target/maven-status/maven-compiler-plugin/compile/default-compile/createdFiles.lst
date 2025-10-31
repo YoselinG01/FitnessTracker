@@ -1,5 +1,6 @@
 com\gcu\business\ProfileService.class
 com\gcu\business\WorkoutService.class
+com\gcu\data\entity\WorkoutEntity.class
 com\gcu\business\SecurityService.class
 com\gcu\business\WorkoutServiceInterface.class
 com\gcu\data\entity\repository\UserRepository.class
@@ -12,6 +13,7 @@ com\gcu\controller\RegistrationController.class
 com\gcu\model\Profile.class
 com\gcu\MilestoneprojectApplication.class
 com\gcu\business\RegistrationService.class
+com\gcu\data\entity\repository\WorkoutRepository.class
 com\gcu\controller\HomeController.class
 com\gcu\model\Workout.class
 com\gcu\controller\WorkoutController.class

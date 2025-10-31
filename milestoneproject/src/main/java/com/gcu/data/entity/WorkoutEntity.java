@@ -1,9 +1,10 @@
 package com.gcu.data.entity;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table("workout_log")
+@Table("workout")
 public class WorkoutEntity {
 
     @Id
@@ -11,6 +12,8 @@ public class WorkoutEntity {
     private String email; // link workout to a user
     private String type; // workout type
     private int duration; // minutes
+
+    @Column("calories_burned")
     private int caloriesBurned;
 
     // Getters and Setters

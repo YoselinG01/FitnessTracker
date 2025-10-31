@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">View Workouts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 5% auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #28a745;
+            margin-bottom: 2rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 0.8rem 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f1f8f3;
+            font-size: 1rem;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Your Workouts</h1>
+
+        <ul>
+            <li th:each="workout : ${workouts}">
+                <strong th:text="${workout.type}">Workout Type</strong> -
+                <span th:text="${workout.duration}">Duration</span> min -
+                <span th:text="${workout.caloriesBurned}">Calories</span> cal
+            </li>
+        </ul>
+
+        <div class="button-container">
+            <button type="button" th:onclick="'location.href=\'' + @{/workouts/add} + '\''">
+                Add Another Workout
+            </button>
+        </div>
+    </div>
+</body>
+</html>

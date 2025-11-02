@@ -4,15 +4,27 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+/**
+ * Represents a workout record in the system and maps to the "workout" table.
+ * Stores workout details linked to a specific user.
+ */
 @Table("workout")
 public class WorkoutEntity {
 
+    /** Unique identifier for the workout. */
     @Id
     private Long id;
-    private String email; // link workout to a user
-    private String type; // workout type
-    private int duration; // minutes
 
+    /** Email of the user who logged the workout. */
+    private String email;
+
+    /** Type of workout. */
+    private String type;
+
+    /** Duration of the workout in minutes. */
+    private int duration;
+
+    /** Calories burned during the workout. */
     @Column("calories_burned")
     private int caloriesBurned;
 

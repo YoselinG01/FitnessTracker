@@ -7,12 +7,24 @@ import com.gcu.data.entity.UserEntity;
 import com.gcu.data.entity.repository.UserRepository;
 import com.gcu.model.RegistrationForm;
 
+/**
+ * Handles user registration logic and communication with the repository.
+ */
 @Service
 public class RegistrationService implements RegistrationServiceInterface {
 
+    /**
+     * Repository used to manage user data.
+     */
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * Registers a new user if the email is not already in use.
+     *
+     * @param form The registration form containing user details.
+     * @return A message indicating if registration was successful or not.
+     */
     @Override
     public String registerUser(RegistrationForm form) {
 

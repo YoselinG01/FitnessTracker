@@ -12,32 +12,32 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /**
- * RegistrationController is responsible for handling
- * requests related to the user registration process.
- *
- * It serves the registration page (GET request) and
- * processes form submissions (POST request).
+ * Handles user registration requests, including displaying
+ * the registration form and processing form submissions.
  */
 @Controller
 public class RegistrationController {
 
+    /**
+     * Service for managing user registration.
+     */
     private final RegistrationServiceInterface registrationService;
 
+    /**
+     * Constructor for dependency injection.
+     *
+     * @param registrationService the registration service
+     */
     @Autowired
     public RegistrationController(RegistrationServiceInterface registrationService) {
         this.registrationService = registrationService;
     }
 
     /**
-     * Handles GET requests for the registration page.
+     * Displays the registration page with a new registration form.
      *
-     * This method creates a new {@link RegistrationForm}
-     * object and attaches it to the model so that the
-     * registration form fields in the Thymeleaf template
-     * can be bound automatically.
-     *
-     * @param model the model object used to pass data to the view
-     * @return the name of the registration view (registration.html)
+     * @param model the model for passing data to the view
+     * @return the registration view
      */
     @GetMapping("/register")
     public String showRegisterPage(Model model) {
@@ -46,16 +46,11 @@ public class RegistrationController {
     }
 
     /**
-     * Handles POST requests for the registration form submission.
+     * Processes the submitted registration form and registers a new user.
      *
-     * When the user submits the registration form, Spring will
-     * automatically bind the input fields to the
-     * {@link RegistrationForm} object. The method then adds a
-     * welcome message to the model and returns the dashboard view.
-     *
-     * @param form  the populated registration form submitted by the user
-     * @param model the model object used to pass data to the view
-     * @return the name of the dashboard view (dashboard.html)
+     * @param form  the registration form with user input
+     * @param model the model for passing data to the view
+     * @return the dashboard view with a registration message
      */
     @PostMapping("/register")
     public String processRegistration(@ModelAttribute("registrationForm") RegistrationForm form, Model model) {

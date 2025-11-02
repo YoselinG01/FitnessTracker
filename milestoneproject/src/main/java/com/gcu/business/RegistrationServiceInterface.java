@@ -4,15 +4,15 @@ import com.gcu.data.entity.UserEntity;
 import com.gcu.model.RegistrationForm;
 
 /**
- * Interface defining the contract for user registration services.
+ * Defines the methods for user registration services.
  */
 public interface RegistrationServiceInterface {
 
     /**
-     * Registers a new user using the provided registration form.
+     * Creates a new user account with the given registration form details.
      *
-     * @param form the registration form containing user information
-     * @return a message indicating success or failure of registration
+     * @param form the form containing user registration data
+     * @return a message showing if registration was successful or failed
      */
 
     String registerUser(RegistrationForm form);

@@ -1,16 +1,16 @@
 package com.gcu.business;
 
 /**
- * Interface for user authentication services.
+ * Defines the contract for user authentication services.
  */
 public interface SecurityServiceInterface {
 
     /**
-     * Authenticates a user based on username and password.
+     * Checks if the provided username and password are valid.
      *
-     * @param username the username provided by the user
-     * @param password the password provided by the user
-     * @return true if authentication succeeds, false otherwise
+     * @param username the user's login name
+     * @param password the user's password
+     * @return true if the credentials are valid, false otherwise
      */
     boolean authenticate(String username, String password);
 }

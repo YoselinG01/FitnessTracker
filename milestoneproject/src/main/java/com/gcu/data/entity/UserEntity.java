@@ -4,42 +4,76 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+/**
+ * Represents a user in the system and maps to the "users" table in the
+ * database.
+ * Contains login and registration information.
+ */
 @Table("users")
 public class UserEntity {
 
+    /** Unique identifier for the user. */
     @Id
     private Long id;
+
+    /** Username for login (usually the email). */
     private String username;
+
+    /** Password for login. */
     private String password;
 
     // Registration fields
+    /** User's first name. */
     @Column("first_name")
     private String firstName;
 
+    /** User's last name. */
     @Column("last_name")
     private String lastName;
+
+    /** User's email address. */
     private String email;
 
+    /** User's date of birth. */
     @Column("date_of_birth")
     private String dateOfBirth;
 
+    /** Primary street address. */
     private String street1;
+
+    /** Secondary street address. */
     private String street2;
+
+    /** City of residence. */
     private String city;
+
+    /** State of residence. */
     private String state;
+
+    /** ZIP/postal code. */
     private String zip;
 
+    /** Area code for the user's phone number. */
     @Column("area_code")
     private String areaCode;
 
+    /** User's phone number. */
     @Column("phone_number")
     private String phoneNumber;
 
-    // Default Constructor
+    /**
+     * Default constructor.
+     */
     public UserEntity() {
 
     }
 
+    /**
+     * Constructor with username and password for login purposes.
+     *
+     * @param username the user's username
+     * @param password the user's password
+     */
     public UserEntity(String username, String password) {
 
         this.username = username;

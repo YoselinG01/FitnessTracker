@@ -5,11 +5,12 @@ package com.gcu.model;
  * the data submitted by a user during registration.
  *
  * It contains personal details such as name, email,
- * date of birth, address, and phone number.
+ * date of birth, address, phone number, and password.
  * This object is populated automatically when a user
  * submits the registration form in the Thymeleaf view.
  */
 public class RegistrationForm {
+
     // Basic Info
     /** The user's first name. */
     private String firstName;
@@ -46,6 +47,7 @@ public class RegistrationForm {
     /** The main part of the phone number. */
     private String phoneNumber;
 
+    /** The user's password. */
     private String password;
 
     // Getters and Setters
@@ -53,7 +55,7 @@ public class RegistrationForm {
     /**
      * Gets the user's first name.
      * 
-     * @return firstName
+     * @return the user's first name
      */
     public String getFirstName() {
         return firstName;
@@ -62,7 +64,7 @@ public class RegistrationForm {
     /**
      * Sets the user's first name.
      * 
-     * @param firstName the first name
+     * @param firstName the user's first name
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -71,7 +73,7 @@ public class RegistrationForm {
     /**
      * Gets the user's last name.
      * 
-     * @return lastName
+     * @return the user's last name
      */
     public String getLastName() {
         return lastName;
@@ -80,25 +82,25 @@ public class RegistrationForm {
     /**
      * Sets the user's last name.
      * 
-     * @param lastName the last name
+     * @param lastName the user's last name
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
     /**
-     * Gets the user's email.
+     * Gets the user's email address.
      * 
-     * @return email
+     * @return the user's email
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * Sets the user's email.
+     * Sets the user's email address.
      * 
-     * @param email the email address
+     * @param email the user's email
      */
     public void setEmail(String email) {
         this.email = email;
@@ -107,7 +109,7 @@ public class RegistrationForm {
     /**
      * Gets the user's date of birth.
      * 
-     * @return dateOfBirth
+     * @return the user's date of birth
      */
     public String getDateOfBirth() {
         return dateOfBirth;
@@ -116,14 +118,14 @@ public class RegistrationForm {
     /**
      * Sets the user's date of birth.
      * 
-     * @param dateOfBirth the date of birth
+     * @param dateOfBirth the user's date of birth
      */
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
     /**
-     * Gets the street address line 1.
+     * Gets the first line of the user's street address.
      * 
      * @return street1
      */
@@ -132,16 +134,16 @@ public class RegistrationForm {
     }
 
     /**
-     * Sets the street address line 1.
+     * Sets the first line of the user's street address.
      * 
-     * @param street1 the street address
+     * @param street1 the first line of the street address
      */
     public void setStreet1(String street1) {
         this.street1 = street1;
     }
 
     /**
-     * Gets the street address line 2.
+     * Gets the second line of the user's street address.
      * 
      * @return street2
      */
@@ -150,16 +152,16 @@ public class RegistrationForm {
     }
 
     /**
-     * Sets the street address line 2.
+     * Sets the second line of the user's street address.
      * 
-     * @param street2 the street address line 2
+     * @param street2 the second line of the street address
      */
     public void setStreet2(String street2) {
         this.street2 = street2;
     }
 
     /**
-     * Gets the city.
+     * Gets the city where the user resides.
      * 
      * @return city
      */
@@ -168,7 +170,7 @@ public class RegistrationForm {
     }
 
     /**
-     * Sets the city.
+     * Sets the city where the user resides.
      * 
      * @param city the city
      */
@@ -177,7 +179,7 @@ public class RegistrationForm {
     }
 
     /**
-     * Gets the state.
+     * Gets the state or province where the user resides.
      * 
      * @return state
      */
@@ -186,16 +188,16 @@ public class RegistrationForm {
     }
 
     /**
-     * Sets the state.
+     * Sets the state or province where the user resides.
      * 
-     * @param state the state
+     * @param state the state or province
      */
     public void setState(String state) {
         this.state = state;
     }
 
     /**
-     * Gets the postal/zip code.
+     * Gets the postal or zip code.
      * 
      * @return zip
      */
@@ -204,9 +206,9 @@ public class RegistrationForm {
     }
 
     /**
-     * Sets the postal/zip code.
+     * Sets the postal or zip code.
      * 
-     * @param zip the postal code
+     * @param zip the postal or zip code
      */
     public void setZip(String zip) {
         this.zip = zip;
@@ -224,7 +226,7 @@ public class RegistrationForm {
     /**
      * Sets the phone area code.
      * 
-     * @param areaCode the area code
+     * @param areaCode the phone area code
      */
     public void setAreaCode(String areaCode) {
         this.areaCode = areaCode;
@@ -247,19 +249,20 @@ public class RegistrationForm {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
     /**
-     * Gets the password.
+     * Gets the user's password.
      * 
      * @return password
      */
-
     public String getPassword() {
         return password;
     }
-    /** 
-     * Sets the password.
+
+    /**
+     * Sets the user's password.
      * 
-     * @param Password the password
+     * @param password the password
      */
     public void setPassword(String password) {
         this.password = password;

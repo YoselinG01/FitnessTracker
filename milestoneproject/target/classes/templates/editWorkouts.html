@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Workout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 5% auto;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #28a745;
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 1rem;
+            color: #28a745;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Edit Workout</h1>
+
+        <form th:action="@{/workouts/update}" th:object="${workout}" method="post">
+            <!-- Keep the hidden ID and email so the record updates correctly -->
+            <input type="hidden" th:field="*{id}" />
+            <input type="hidden" th:field="*{email}" />
+
+            <label for="type">Type:</label>
+            <select th:field="*{type}" required>
+                <option value="">-- Select Workout Type --</option>
+                <option value="Cardio" th:selected="${workout.type == 'Cardio'}">Cardio</option>
+                <option value="Strength" th:selected="${workout.type == 'Strength'}">Strength</option>
+                <option value="High-Intense" th:selected="${workout.type == 'High-Intense'}">High-Intense</option>
+                <option value="Bodyweight" th:selected="${workout.type == 'Bodyweight'}">Bodyweight</option>
+                <option value="Functional" th:selected="${workout.type == 'Functional'}">Functional</option>
+            </select>
+
+            <label for="caloriesBurned">Calories Burned:</label>
+            <input type="number" id="caloriesBurned" th:field="*{caloriesBurned}" min="1" required />
+
+            <label for="duration">Duration (minutes):</label>
+            <input type="number" id="duration" th:field="*{duration}" min="1" required />
+
+            <button type="submit">Update Workout</button>
+        </form>
+
+        <a class="back-link" th:href="@{/workouts/view}">← Back to Workouts</a>
+    </div>
+</body>
+</html>

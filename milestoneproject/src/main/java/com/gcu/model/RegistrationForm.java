@@ -47,7 +47,6 @@ public class RegistrationForm {
     /** The main part of the phone number. */
     private String phoneNumber;
 
-    /** The user's password. */
     private String password;
 
     // Getters and Setters
@@ -251,6 +250,12 @@ public class RegistrationForm {
     }
 
     /**
+     * Gets the password.
+     * 
+     * @return password
+     */
+
+    /**
      * Gets the user's password.
      * 
      * @return password
@@ -260,9 +265,9 @@ public class RegistrationForm {
     }
 
     /**
-     * Sets the user's password.
+     * Sets the password.
      * 
-     * @param password the password
+     * @param Password the password
      */
     public void setPassword(String password) {
         this.password = password;

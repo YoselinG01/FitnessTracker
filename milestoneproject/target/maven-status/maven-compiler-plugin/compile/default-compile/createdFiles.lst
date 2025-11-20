@@ -4,13 +4,16 @@ com\gcu\data\entity\WorkoutEntity.class
 com\gcu\business\SecurityService.class
 com\gcu\business\WorkoutServiceInterface.class
 com\gcu\data\entity\repository\UserRepository.class
+com\gcu\security\PasswordHasher.class
 com\gcu\business\RegistrationServiceInterface.class
 com\gcu\model\RegistrationForm.class
 com\gcu\business\ProfileServiceInterface.class
 com\gcu\controller\ProfileController.class
 com\gcu\model\LoginForm.class
 com\gcu\controller\RegistrationController.class
+com\gcu\business\MyUserDetailsService.class
 com\gcu\model\Profile.class
+com\gcu\security\SecurityConfig.class
 com\gcu\MilestoneprojectApplication.class
 com\gcu\business\RegistrationService.class
 com\gcu\data\entity\repository\WorkoutRepository.class

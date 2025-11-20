@@ -32,7 +32,6 @@
             text-align: center;
         }
 
-        /* Logo inside card */
         .card-logo {
             display: flex;
             justify-content: center;
@@ -73,13 +72,16 @@
         .register-btn {
             margin-top: 1rem;
         }
+
+        .text-success {
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body>
 <div layout:fragment="content">
     <div class="login-page">
 
-        <!-- Login card -->
         <div class="card">
 
             <!-- Logo inside card -->
@@ -90,28 +92,29 @@
             <!-- Page title -->
             <h1 th:text="${title}">Login</h1>
 
-            <!-- Login form -->
-            <form th:action="@{/login/doLogin}" th:object="${loginForm}" method="post" class="d-grid gap-3 text-start">
+            <!-- Spring Security Login Form -->
+            <form th:action="@{/login/process}" method="post" class="d-grid gap-3 text-start">
+
                 <!-- Username -->
                 <div>
                     <label for="username" class="form-label">Username:</label>
-                    <input type="text" th:field="*{username}" class="form-control" id="username"/>
-                    <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="text-danger mt-2"></div>
+                    <input type="text" name="username" class="form-control" id="username" required />
                 </div>
 
                 <!-- Password -->
                 <div>
                     <label for="password" class="form-label">Password:</label>
-                    <input type="password" th:field="*{password}" class="form-control" id="password"/>
-                    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger mt-2"></div>
+                    <input type="password" name="password" class="form-control" id="password" required />
                 </div>
 
-                <!-- Errors -->
-                <div th:if="${#fields.hasErrors('*')}" class="text-danger">
-                    <p>There were errors in your submission:</p>
-                    <ul>
-                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
-                    </ul>
+                <!-- Spring Security: Login Error -->
+                <div th:if="${param.error}" class="text-danger mt-2">
+                    Invalid username or password.
+                </div>
+
+                <!-- Spring Security: Logout Success -->
+                <div th:if="${param.logout}" class="text-success mt-2">
+                    You have been logged out successfully.
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100">Login</button>
@@ -127,4 +130,5 @@
 </div>
 </body>
 </html>
+
 

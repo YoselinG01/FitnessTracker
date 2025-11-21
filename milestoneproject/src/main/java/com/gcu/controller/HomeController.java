@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
 
+/**
+ * Controller that handles login and dashboard views.
+ * Provides methods for displaying the login page and the user's dashboard.
+ */
 @Controller
 @RequestMapping("/login")
 public class HomeController {
@@ -18,7 +22,10 @@ public class HomeController {
     private UserRepository userRepository;
 
     /**
-     * Displays the login form (GET request).
+     * Displays the login form page.
+     *
+     * @param model the Spring Model object to pass data to the view
+     * @return the name of the login view (login.html)
      */
     @GetMapping("/")
     public String displayLogin(Model model) {
@@ -27,8 +34,12 @@ public class HomeController {
     }
 
     /**
-     * Displays the dashboard page.
-     * Spring Security automatically provides the logged-in user's information.
+     * Displays the dashboard page for the logged-in user.
+     *
+     * @param model     the Spring Model object to pass data to the view
+     * @param principal the currently authenticated user provided by Spring Security
+     * @return the name of the dashboard view (dashboard.html), or redirects to
+     *         login if not authenticated
      */
     @GetMapping("/dashboard")
     public String showDashboard(Model model, Principal principal) {

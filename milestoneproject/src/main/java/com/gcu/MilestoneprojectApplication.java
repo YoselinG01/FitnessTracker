@@ -8,6 +8,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 public class MilestoneprojectApplication {
+
+    /**
+     * Default constructor.
+     * <p>
+     * Creates an instance of the application class.
+     * </p>
+     */
+    public MilestoneprojectApplication() {
+    }
+
     /**
      * Starts the application.
      * 

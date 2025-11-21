@@ -267,7 +267,7 @@ public class RegistrationForm {
     /**
      * Sets the password.
      * 
-     * @param Password the password
+     * @param password the password
      */
     public void setPassword(String password) {
         this.password = password;

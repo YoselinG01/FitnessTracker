@@ -13,6 +13,15 @@ import com.gcu.data.entity.repository.UserRepository;
 public class SecurityService implements SecurityServiceInterface {
 
     /**
+     * Default constructor.
+     * <p>
+     * Creates an instance of SecurityService.
+     * </p>
+     */
+    public SecurityService() {
+    }
+
+    /**
      * Repository used to access user information.
      */
     @Autowired

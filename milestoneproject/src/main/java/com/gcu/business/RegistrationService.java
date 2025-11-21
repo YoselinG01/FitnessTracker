@@ -15,11 +15,23 @@ import com.gcu.model.RegistrationForm;
 public class RegistrationService implements RegistrationServiceInterface {
 
     /**
+     * Default constructor.
+     * <p>
+     * Creates an instance of RegistrationService.
+     * </p>
+     */
+    public RegistrationService() {
+    }
+
+    /**
      * Repository used to manage user data.
      */
     @Autowired
     private UserRepository userRepository;
 
+    /**
+     * Password encoder for hashing user passwords.
+     */
     @Autowired
     private PasswordEncoder passwordEncoder;
 

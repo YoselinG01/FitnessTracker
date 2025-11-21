@@ -11,6 +11,10 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import com.gcu.business.MyUserDetailsService;
 
+/**
+ * Spring Security configuration class.
+ * Sets up authentication, authorization, login, logout, and password encoding.
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -18,6 +22,13 @@ public class SecurityConfig {
         @Autowired
         private MyUserDetailsService userDetailsService;
 
+        /**
+         * Configures the HTTP security for the application.
+         * 
+         * @param http the HttpSecurity object
+         * @return the configured SecurityFilterChain
+         * @throws Exception if any error occurs during configuration
+         */
         @Bean
         public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
                 return http
@@ -40,6 +51,11 @@ public class SecurityConfig {
                                 .build();
         }
 
+        /**
+         * Bean for password encoding using BCrypt.
+         * 
+         * @return the PasswordEncoder instance
+         */
         @Bean
         public PasswordEncoder passwordEncoder() {
                 return new BCryptPasswordEncoder();

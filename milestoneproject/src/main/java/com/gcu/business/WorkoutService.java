@@ -21,18 +21,29 @@ import com.gcu.model.Workout;
 public class WorkoutService implements WorkoutServiceInterface {
 
     /**
+     * Default constructor.
+     * <p>
+     * Creates an instance of WorkoutService.
+     * </p>
+     */
+    public WorkoutService() {
+    }
+
+    /**
      * Repository used to access workout records stored in the database.
      */
     @Autowired
     private WorkoutRepository workoutRepository;
 
     /**
-     * Logs a new workout by converting the incoming model object into a database entity
+     * Logs a new workout by converting the incoming model object into a database
+     * entity
      * and saving it through the repository.
      *
      * @param email   the email of the user logging the workout
      * @param workout the workout data submitted from the UI
-     * @return a confirmation message indicating that the workout was successfully logged
+     * @return a confirmation message indicating that the workout was successfully
+     *         logged
      */
     @Override
     public String logWorkout(String email, Workout workout) {
@@ -75,8 +86,7 @@ public class WorkoutService implements WorkoutServiceInterface {
                         entity.getType(),
                         entity.getCaloriesBurned(),
                         entity.getDuration(),
-                        entity.getEmail()
-                ))
+                        entity.getEmail()))
                 .orElse(null);
     }
 

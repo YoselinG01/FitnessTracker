@@ -23,7 +23,8 @@ public class SecurityConfig {
                 return http
                                 .csrf(csrf -> csrf.disable())
                                 .authorizeHttpRequests(auth -> auth
-                                                .requestMatchers("/login/**", "/css/**", "/images/**").permitAll()
+                                                .requestMatchers("/login/**", "/register/**", "/css/**", "/images/**")
+                                                .permitAll()
                                                 .anyRequest().authenticated())
                                 .formLogin(form -> form
                                                 .loginPage("/login/") // your login controller page

@@ -1,6 +1,7 @@
 package com.gcu.business;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.gcu.data.entity.UserEntity;
@@ -19,6 +20,9 @@ public class RegistrationService implements RegistrationServiceInterface {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     /**
      * Registers a new user if the email is not already in use.
      *
@@ -35,7 +39,10 @@ public class RegistrationService implements RegistrationServiceInterface {
         UserEntity newUser = new UserEntity();
         newUser.setUsername(form.getEmail());
         newUser.setEmail(form.getEmail());
-        newUser.setPassword(form.getPassword());
+
+        String hashedPassword = passwordEncoder.encode(form.getPassword());
+        newUser.setPassword(hashedPassword);
+
         newUser.setFirstName(form.getFirstName());
         newUser.setLastName(form.getLastName());
         newUser.setDateOfBirth(form.getDateOfBirth());

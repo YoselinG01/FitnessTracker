@@ -1,5 +1,6 @@
 <!-- resources/templates/layouts/navbar.html -->
 <div th:fragment="header">
+
     <!-- Hide this section on login page -->
     <div class="container text-center my-4" th:if="${title != 'POWER Login'}">
         <h1>Welcome to POWER Fitness Tracker</h1>
@@ -8,23 +9,47 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
+
+            <!-- Left side brand -->
             <a class="navbar-brand" href="#">POWER</a>
+
+            <!-- Mobile toggle button -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNav" aria-controls="navbarNav"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbarNav">
+                
+                <!-- (left side empty so items push right) -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-                <ul class="navbar-nav"></ul>
+
+                <!-- RIGHT SIDE BUTTONS -->
+                <ul class="navbar-nav">
+
+                    <!-- Logout button, hidden on login page -->
+                    <li class="nav-item" th:if="${title != 'POWER Login'}">
+                        <form th:action="@{/logout}" method="post" style="display:inline;">
+                            <button type="submit"
+                                    class="btn btn-outline-success"
+                                    style="border-width:2px; font-weight:bold;">
+                                Logout
+                            </button>
+                        </form>
+                    </li>
+
+                </ul>
+
             </div>
         </div>
     </nav>
 
-    <!-- Hide logo and page title on login page -->
+    <!-- Logo under navbar (hide on login page) -->
     <div class="container text-center my-4" th:if="${title != 'POWER Login'}">
-        <img th:src="@{/images/logo.png}" alt="POWER Logo" style="height: 60px;" class="mt-2"/>
+        <img th:src="@{/images/logo.png}" alt="POWER Logo"
+             style="height: 60px;" class="mt-2"/>
     </div>
 </div>
 
@@ -33,4 +58,3 @@
         <h5 style="color:white;">&copy; 2025 POWER Fitness Tracker</h5>
     </footer>
 </div>
-

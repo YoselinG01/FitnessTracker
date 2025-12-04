@@ -7,8 +7,10 @@ import org.springframework.data.relational.core.mapping.Table;
 /**
  * Entity class that maps to the "users" table in the database.
  * <p>
- * This class represents a registered user within the POWER Fitness Tracker system.
- * It stores user credentials for login as well as personal details collected during registration.
+ * This class represents a registered user within the POWER Fitness Tracker
+ * system.
+ * It stores user credentials for login as well as personal details collected
+ * during registration.
  */
 @Table("users")
 public class UserEntity {
@@ -95,7 +97,8 @@ public class UserEntity {
     /**
      * Default constructor required for ORM and Spring Data mapping.
      */
-    public UserEntity() {}
+    public UserEntity() {
+    }
 
     /**
      * Constructor used during login authentication.

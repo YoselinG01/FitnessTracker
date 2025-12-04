@@ -27,6 +27,7 @@
 -version
 -windowtitle
 'milestoneproject 0.0.1-SNAPSHOT API'
+com.gcu.api
 com.gcu.business
 com.gcu.controller
 com.gcu.data.entity.repository
@@ -97,18 +98,17 @@ C:\Users\yosia\.m2\repository\org\springframework\security\spring-security-core\
 C:\Users\yosia\.m2\repository\org\springframework\security\spring-security-crypto\6.5.3\spring-security-crypto-6.5.3.jar = 1762981576170
 C:\Users\yosia\.m2\repository\org\springframework\security\spring-security-web\6.5.3\spring-security-web-6.5.3.jar = 1762981576261
 C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\src\main\java = 1757710945577
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\allclasses-index.html = 1763760227023
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\allpackages-index.html = 1763760227027
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\element-list = 1763760226729
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\help-doc.html = 1763760227075
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\index-all.html = 1763760227064
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\index.html = 1763760227000
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\javadoc.bat = 1763759434821
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\member-search-index.js = 1763760227035
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\module-search-index.js = 1763760227029
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\overview-summary.html = 1763760227070
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\overview-tree.html = 1763760226996
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\package-search-index.js = 1763760227031
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\search.html = 1763760227066
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\tag-search-index.js = 1763760227036
-C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\type-search-index.js = 1763760227033
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\allclasses-index.html = 1764883591351
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\allpackages-index.html = 1764883591354
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\element-list = 1764883590822
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\help-doc.html = 1764883591435
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\index-all.html = 1764883591421
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\index.html = 1764883591309
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\member-search-index.js = 1764883591369
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\module-search-index.js = 1764883591357
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\overview-summary.html = 1764883591429
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\overview-tree.html = 1764883591300
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\package-search-index.js = 1764883591360
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\search.html = 1764883591424
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\tag-search-index.js = 1764883591372
+C:\Users\yosia\Downloads\Java3\FitnessTracker\milestoneproject\target\reports\apidocs\type-search-index.js = 1764883591361

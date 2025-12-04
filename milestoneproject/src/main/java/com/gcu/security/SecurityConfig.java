@@ -34,12 +34,20 @@ public class SecurityConfig {
                 return http
                                 .csrf(csrf -> csrf.disable())
                                 .authorizeHttpRequests(auth -> auth
+                                                // Allow public access to these
                                                 .requestMatchers("/login/**", "/register/**", "/css/**", "/images/**")
                                                 .permitAll()
+                                                // Secure API endpoints
+                                                .requestMatchers("/api/**").authenticated()
+                                                // All other requests
                                                 .anyRequest().authenticated())
+                                // Enable Basic Authentication for API
+                                .httpBasic()
+                                // Keep form login for web pages
+                                .and()
                                 .formLogin(form -> form
-                                                .loginPage("/login/") // your login controller page
-                                                .loginProcessingUrl("/login/process") // form POST action
+                                                .loginPage("/login/")
+                                                .loginProcessingUrl("/login/process")
                                                 .defaultSuccessUrl("/login/dashboard", true)
                                                 .failureUrl("/login/?error=true")
                                                 .permitAll())

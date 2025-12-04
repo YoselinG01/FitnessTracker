@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.gcu"},{"l":"com.gcu.business"},{"l":"com.gcu.controller"},{"l":"com.gcu.data.entity"},{"l":"com.gcu.data.entity.repository"},{"l":"com.gcu.model"},{"l":"com.gcu.security"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.gcu"},{"l":"com.gcu.api"},{"l":"com.gcu.business"},{"l":"com.gcu.controller"},{"l":"com.gcu.data.entity"},{"l":"com.gcu.data.entity.repository"},{"l":"com.gcu.model"},{"l":"com.gcu.security"}];updateSearchResults();

@@ -47,16 +47,17 @@ public class WorkoutEntity {
     /**
      * Default constructor required by Spring Data and ORM mapping frameworks.
      */
-    public WorkoutEntity() {}
+    public WorkoutEntity() {
+    }
 
     /**
      * Constructs a new WorkoutEntity with all fields initialized.
      *
-     * @param id              unique identifier of the workout record
-     * @param type            type of workout performed
-     * @param caloriesBurned  calories burned during the workout
-     * @param duration        length of the workout in minutes
-     * @param email           email address of the user logging the workout
+     * @param id             unique identifier of the workout record
+     * @param type           type of workout performed
+     * @param caloriesBurned calories burned during the workout
+     * @param duration       length of the workout in minutes
+     * @param email          email address of the user logging the workout
      */
     public WorkoutEntity(Long id, String type, int caloriesBurned, int duration, String email) {
         this.id = id;

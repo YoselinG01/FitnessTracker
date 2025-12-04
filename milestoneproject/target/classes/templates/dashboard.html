@@ -13,27 +13,8 @@
             font-family: Arial, sans-serif;
         }
 
-        /* ---------------- LOGOUT BUTTON STYLE ---------------- */
-        .logout-btn {
-            padding: 0.6rem 1.2rem;
-            font-size: 1rem;
-            border-radius: 8px;
-            border: 2px solid #28a745; 
-            background-color: white;
-            color: #28a745;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s ease-in-out;
-        }
-
-        .logout-btn:hover {
-            background-color: #28a745;
-            color: white;
-        }
-
-        /* ---------------- DASHBOARD CONTENT ---------------- */
         .dashboard-wrapper {
-            height: calc(100vh - 150px); 
+            height: calc(100vh - 150px); /* account for navbar height */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -81,24 +62,9 @@
         .section button:hover {
             background-color: #218838;
         }
-
-        /* TOP RIGHT LOGOUT POSITION */
-        .logout-container {
-            position: absolute;
-            top: 20px;
-            right: 40px;
-        }
     </style>
 </head>
 <body>
-
-<!-- TOP RIGHT LOGOUT BUTTON -->
-<div class="logout-container">
-    <form th:action="@{/logout}" method="post">
-        <button type="submit" class="logout-btn">Logout</button>
-    </form>
-</div>
-
 <div layout:fragment="content">
     <div class="dashboard-wrapper">
         <div class="dashboard-card">
@@ -114,8 +80,8 @@
                 </button>
 
                 <button type="button"
-                        th:onclick="'location.href=\'' + @{/workouts/view} + '\''">
-                    View Workouts
+                    th:onclick="'location.href=\'' + @{/workouts/view} + '\''">
+                View Workouts
                 </button>
             </div>
 
@@ -124,7 +90,7 @@
                 <h3>Profile</h3>
                 <button type="button"
                         th:onclick="'location.href=\'' + @{/profile/edit} + '\''">
-                    View Profile
+                    Edit Profile
                 </button>
             </div>
 
@@ -133,3 +99,4 @@
 </div>
 </body>
 </html>
+

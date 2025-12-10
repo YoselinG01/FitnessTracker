@@ -62,6 +62,7 @@ public class WorkoutController {
     @PostMapping("/workouts/add")
     public String processWorkoutLog(@ModelAttribute("workout") Workout workout, Model model, HttpSession session) {
         String email = (String) session.getAttribute("userEmail");
+        workout.setEmail(email);
         String message = workoutService.logWorkout(email, workout);
         model.addAttribute("message", message);
         return "dashboard";
@@ -87,7 +88,8 @@ public class WorkoutController {
      *
      * @param id    the ID of the workout to edit
      * @param model model used to pass the selected workout to the view
-     * @return "editWorkouts" view populated with the workout data (editWorkouts.html)
+     * @return "editWorkouts" view populated with the workout data
+     *         (editWorkouts.html)
      */
     @GetMapping("/workouts/edit/{id}")
     public String showEditForm(@PathVariable("id") Long id, Model model) {

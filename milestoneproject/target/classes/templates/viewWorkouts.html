@@ -2,28 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${title}">View Workouts</title>
+    <title>Your Workouts</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #e8f5e9;
+            background-color: #e9f7ef;
             margin: 0;
             padding: 0;
         }
 
         .form-container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 5% auto;
             background: #fff;
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
+        h2 {
             text-align: center;
-            color: #28a745;
-            margin-bottom: 2rem;
+            color: #2c662d;
+            margin-bottom: 1.5rem;
         }
 
         ul {
@@ -32,12 +32,48 @@
         }
 
         li {
-            padding: 0.8rem 1rem;
+            padding: 1rem;
             margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 8px;
             background-color: #f1f8f3;
-            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .workout-info {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .btn-warning {
+            background-color: #f0ad4e;
+        }
+
+        .btn-warning:hover {
+            background-color: #ec971f;
+        }
+
+        .btn-danger {
+            background-color: #d9534f;
+        }
+
+        .btn-danger:hover {
+            background-color: #c9302c;
         }
 
         .button-container {
@@ -46,9 +82,9 @@
         }
 
         button {
+            padding: 0.8rem 2rem;
             background-color: #28a745;
             color: white;
-            padding: 0.8rem 1.5rem;
             border: none;
             border-radius: 8px;
             font-size: 1rem;
@@ -58,25 +94,54 @@
         button:hover {
             background-color: #218838;
         }
+
+        .back-link {
+            display: block;
+            margin-top: 1.5rem;
+            text-align: center;
+            color: #28a745;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-    <div class="form-container">
-        <h1>Your Workouts</h1>
 
-        <ul>
-            <li th:each="workout : ${workouts}">
-                <strong th:text="${workout.type}">Workout Type</strong> -
-                <span th:text="${workout.duration}">Duration</span> min -
-                <span th:text="${workout.caloriesBurned}">Calories</span> cal
-            </li>
-        </ul>
+<div class="form-container">
+    <h2>Your Logged Workouts</h2>
 
-        <div class="button-container">
-            <button type="button" th:onclick="'location.href=\'' + @{/workouts/add} + '\''">
-                Add Another Workout
-            </button>
-        </div>
+    <ul>
+        <li th:each="workout : ${workouts}">
+            <div class="workout-info">
+                <strong th:text="${workout.type}">Workout</strong> -
+                <span th:text="${workout.duration}">0</span> min -
+                <span th:text="${workout.caloriesBurned}">0</span> cal
+            </div>
+
+            <div class="actions">
+                <a th:href="@{'/workouts/edit/' + ${workout.id}}" class="btn btn-warning">Edit</a>
+                <a th:href="@{'/workouts/delete/' + ${workout.id}}"
+                   class="btn btn-danger"
+                   onclick="return confirm('Are you sure you want to delete this workout?');">
+                    Delete
+                </a>
+            </div>
+        </li>
+    </ul>
+
+    <div class="button-container">
+        <button onclick="window.location.href='/workouts/add'">
+            Add Another Workout
+        </button>
     </div>
+
+    <a class="back-link" th:href="@{/login/dashboard}">← Back to Dashboard</a>
+
+</div>
+
 </body>
 </html>

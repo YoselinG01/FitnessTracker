@@ -2,6 +2,9 @@ package com.gcu.controller;
 
 import com.gcu.data.entity.UserEntity;
 import com.gcu.data.entity.repository.UserRepository;
+
+import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +45,7 @@ public class HomeController {
      *         login if not authenticated
      */
     @GetMapping("/dashboard")
-    public String showDashboard(Model model, Principal principal) {
+    public String showDashboard(Model model, Principal principal, HttpSession session) {
 
         if (principal == null) {
             return "redirect:/login/";
@@ -53,6 +56,7 @@ public class HomeController {
 
         // Lookup user in database
         UserEntity user = userRepository.findByUsername(username);
+        session.setAttribute("userEmail", user.getEmail());
 
         model.addAttribute("title", "POWER Dashboard");
         model.addAttribute("firstName", user.getFirstName());
